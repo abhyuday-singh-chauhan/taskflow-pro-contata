@@ -240,24 +240,7 @@ Filters invalid task IDs.
 Returns structured dependency suggestions.
 
 
-# 8. API Overview
 
-Some of the main API endpoints are:
-
-Method	Endpoint	Purpose
-GET	/	Check backend status
-POST	/tasks	Create a task
-GET	/tasks	Get all tasks
-PATCH	/tasks/{id}	Update a task
-DELETE	/tasks/{id}	Delete a task
-POST	/tasks/{id}/dependencies	Add dependency
-GET	/tasks/{id}/dependencies	Get dependencies
-DELETE	/tasks/{id}/dependencies/{dependency_id}	Remove dependency
-GET	/tasks/{id}/state	Get READY/BLOCKED state
-GET	/tasks/{id}/schedule	Calculate schedule
-POST	/ai/suggest-dependencies	Get AI dependency suggestions
-
-FastAPI also provides interactive API documentation through Swagger.
 
 
 
