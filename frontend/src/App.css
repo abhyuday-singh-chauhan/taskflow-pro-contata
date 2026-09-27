@@ -1,0 +1,563 @@
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100vw;
+}
+
+body {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+
+/* =========================================
+   MAIN APP
+========================================= */
+
+.app {
+  min-height: 100vh;
+  padding: 28px 32px 40px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+  padding: 22px 26px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+
+  box-shadow:
+    0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+.header h1 {
+  margin: 0;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  letter-spacing: -0.5px;
+
+  color: #0f172a;
+}
+
+.header p {
+  margin: 6px 0 0;
+
+  font-size: 14px;
+
+  color: #64748b;
+}
+
+
+/* =========================================
+   HEADER CREATE BUTTON
+========================================= */
+
+.header button {
+  margin: 0;
+
+  padding: 10px 17px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #2563eb;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.header button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   GENERAL BUTTONS
+========================================= */
+
+button {
+  border: none;
+  border-radius: 6px;
+
+  padding: 6px 10px;
+
+  background: #64748b;
+  color: white;
+
+  font-family: inherit;
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+button:hover {
+  background: #475569;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================================
+   CREATE / EDIT FORM
+========================================= */
+
+.task-form {
+  width: 100%;
+  max-width: 520px;
+
+  margin: 0 auto 25px;
+
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  box-shadow:
+    0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.task-form input,
+.task-form textarea,
+.task-form select {
+  width: 100%;
+
+  margin-bottom: 12px;
+  padding: 10px 12px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #1e293b;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.task-form input:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.task-form textarea {
+  min-height: 85px;
+
+  resize: vertical;
+}
+
+
+/* =========================================
+   KANBAN BOARD
+========================================= */
+
+.board {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(250px, 1fr));
+
+  gap: 18px;
+
+  width: 100%;
+
+  overflow-x: auto;
+
+  padding-bottom: 15px;
+}
+
+
+/* =========================================
+   KANBAN COLUMN
+========================================= */
+
+.column {
+  position: relative;
+
+  min-width: 250px;
+  min-height: 520px;
+
+  padding: 14px;
+
+  background: #eef2f7;
+
+  border: 1px solid #dce3ec;
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   COLUMN TOP ACCENTS
+========================================= */
+
+.column:nth-child(1) {
+  border-top: 4px solid #94a3b8;
+}
+
+.column:nth-child(2) {
+  border-top: 4px solid #3b82f6;
+}
+
+.column:nth-child(3) {
+  border-top: 4px solid #f59e0b;
+}
+
+.column:nth-child(4) {
+  border-top: 4px solid #22c55e;
+}
+
+
+/* =========================================
+   COLUMN HEADINGS
+========================================= */
+
+.column h2 {
+  margin: 2px 4px 15px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  color: #334155;
+}
+
+
+/* =========================================
+   TASK CARD
+========================================= */
+
+.task-card {
+  margin-bottom: 12px;
+
+  padding: 14px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+
+  box-shadow:
+    0 2px 6px rgba(15, 23, 42, 0.06);
+
+  color: #1e293b;
+
+  cursor: grab;
+
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #cbd5e1;
+
+  box-shadow:
+    0 6px 14px rgba(15, 23, 42, 0.09);
+}
+
+.task-card:active {
+  cursor: grabbing;
+}
+
+
+/* =========================================
+   TASK TITLE
+========================================= */
+
+.task-card h3 {
+  margin: 0 0 7px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  line-height: 1.35;
+
+  color: #0f172a;
+}
+
+
+/* =========================================
+   TASK DESCRIPTION
+========================================= */
+
+.task-card p {
+  margin: 5px 0;
+
+  font-size: 13px;
+
+  line-height: 1.45;
+
+  color: #64748b;
+}
+
+
+/* =========================================
+   READY / BLOCKED STATE
+========================================= */
+
+/*
+   The React code currently prints:
+
+   State: READY
+   State: BLOCKED
+
+   This styling makes the text easier to notice.
+*/
+
+.task-card p:last-of-type {
+  margin-top: 9px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #475569;
+}
+
+
+/* =========================================
+   TASK CARD BUTTON AREA
+========================================= */
+
+.task-card button {
+  margin-top: 7px;
+  margin-right: 4px;
+
+  background: #64748b;
+}
+
+.task-card button:hover {
+  background: #475569;
+}
+
+
+/* =========================================
+   DEPENDENCY BUTTON
+========================================= */
+
+.task-card button:last-of-type {
+  background: #475569;
+}
+
+.task-card button:last-of-type:hover {
+  background: #334155;
+}
+
+
+/* =========================================
+   DEPENDENCY PANEL
+========================================= */
+
+.dependency-panel {
+  margin-top: 12px;
+  padding: 13px;
+
+  background: #f8fafc;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.dependency-panel h4 {
+  margin: 0 0 7px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #1e293b;
+}
+
+.dependency-panel p {
+  font-size: 12px;
+  line-height: 1.4;
+
+  color: #64748b;
+}
+
+.dependency-panel label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 12px;
+
+  color: #334155;
+}
+
+.dependency-panel input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+
+/* =========================================
+   DEPENDENCY PANEL BUTTONS
+========================================= */
+
+.dependency-panel button {
+  margin-top: 6px;
+}
+
+
+/* =========================================
+   DRAGGING FEEDBACK
+========================================= */
+
+.task-card[draggable="true"]:hover {
+  cursor: grab;
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+.board::-webkit-scrollbar {
+  height: 8px;
+}
+
+.board::-webkit-scrollbar-track {
+  background: #e2e8f0;
+
+  border-radius: 10px;
+}
+
+.board::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+
+  border-radius: 10px;
+}
+
+.board::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .app {
+    padding: 20px;
+  }
+
+  .header {
+    padding: 20px;
+  }
+
+  .board {
+    grid-template-columns:
+      repeat(2, minmax(260px, 1fr));
+
+    overflow-x: visible;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+  .app {
+    padding: 14px;
+  }
+
+  .header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .header button {
+    width: 100%;
+  }
+
+  .board {
+    grid-template-columns: 1fr;
+
+    overflow-x: visible;
+  }
+
+  .column {
+    min-width: 0;
+  }
+
+}
