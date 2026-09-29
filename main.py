@@ -124,7 +124,7 @@ def update_task(
     # Find the task
     task = db.query(Task).filter(
         Task.id == task_id
-    ).first()
+    ).first()  # because before updating anything, the backend need to find the actual task
 
     if not task:
         raise HTTPException(
@@ -137,7 +137,7 @@ def update_task(
 
     # Get only fields that were actually sent
     update_data = task_data.model_dump(
-        exclude_unset=True
+        exclude_unset=True  # update only what user has provided does not automatically update all
     )
 
     # --------------------------------
@@ -239,15 +239,16 @@ def update_task(
             )
 
         # Find all downstream tasks
-        affected_tasks = get_downstream_tasks(
+        affected_tasks = get_downstream_tasks( #to check task is affected downstream
             task_id,
             graph
         )
 
         # Roll back completed downstream tasks
+        # here it check task one by one
         for affected_task_id in affected_tasks:
 
-            affected_task = db.query(Task).filter(
+            affected_task = db.query(Task).filter( # than retrive the actual task
                 Task.id == affected_task_id
             ).first()
 
