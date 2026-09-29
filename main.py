@@ -63,7 +63,7 @@ def get_db():
 # Home / Health Check
 # -------------------------
 
-@app.get("/")
+@app.get("/") 
 def home():
     return {
         "message": "TaskFlow Pro Backend is running"
@@ -101,11 +101,11 @@ def create_task(
 # GET /tasks
 # -------------------------
 
-@app.get("/tasks")
+@app.get("/tasks") # when client send request to GET TASK
 def get_tasks(
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db) # this is session can ask from sqlite to give task
 ):
-    tasks = db.query(Task).all()
+    tasks = db.query(Task).all() # This give all the matching task
 
     return tasks
 
