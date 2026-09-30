@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";  // usestate allow react component to store info that can change over time
 import "./App.css";
 
 function App() {
 
   console.log("NEW APP.JSX IS RUNNING");
 
-  const [tasks, setTasks] = useState([]);
+  // settask does not change the UI it chamge the react state
+  
+  const [tasks, setTasks] = useState([]); // settask use to change // task which is given
 
   const [showForm, setShowForm] = useState(false);
 
@@ -13,9 +15,9 @@ function App() {
   const [description, setDescription] = useState("");
 
   // State used for editing an existing task
-  const [editingTaskId, setEditingTaskId] = useState(null);
+  const [editingTaskId, setEditingTaskId] = useState(null); // useeffect, run the code when specific data change
   const [editTitle, setEditTitle] = useState("");
-  const [editDescription, setEditDescription] = useState("");
+  const [editDescription, setEditDescription] = useState(""); // loadtask, it load the task automatically the UI Page
   const [editStatus, setEditStatus] = useState("backlog");
 
   // Stores the ID of the task currently being dragged
