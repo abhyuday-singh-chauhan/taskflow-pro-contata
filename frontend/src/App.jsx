@@ -112,7 +112,7 @@ function App() {
 
     console.log("Calling FastAPI...");
 
-    fetch("http://127.0.0.1:8000/tasks")
+    fetch("http://127.0.0.1:8000/tasks") // useeffect that loads all the tasks when taskflow pro opens
 
       .then((response) => {
 
