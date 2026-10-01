@@ -108,13 +108,13 @@ function App() {
   // LOAD TASKS
   // --------------------------------
 
-  useEffect(() => {
+  useEffect(() => { // automatically load the task when page starts
 
     console.log("Calling FastAPI...");
 
     fetch("http://127.0.0.1:8000/tasks") // useeffect that loads all the tasks when taskflow pro opens
 
-      .then((response) => {
+      .then((response) => {  // .then as a function
 
         console.log(
           "Response status:",
@@ -166,7 +166,7 @@ function App() {
   // CREATE TASK
   // --------------------------------
 
-  async function handleSubmit(event) {
+  async function handleSubmit(event) {  // async means the func will perform an a asynchronous operation mainelu the API request
 
     event.preventDefault();
 
@@ -176,10 +176,10 @@ function App() {
 
     try {
 
-      const response = await fetch(
+      const response = await fetch(  // await means wait for API request to finish before moving to the  nxt line
         "http://127.0.0.1:8000/tasks",
         {
-          method: "POST",
+          method: "POST",  // without await javascript should continue immediately
 
           headers: {
             "Content-Type": "application/json"
