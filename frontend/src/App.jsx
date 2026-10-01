@@ -583,10 +583,10 @@ function App() {
           method: "POST",
 
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json" // the data i am sending in the request body is JSON
           },
 
-          body: JSON.stringify({
+          body: JSON.stringify({         // need to convert in JSON string before sent to HTTP request
             title: task.title,
             description: task.description || ""
           })
@@ -596,7 +596,7 @@ function App() {
       const data =
         await response.json();
 
-      if (!response.ok) {
+      if (!response.ok) {  // it tells whether the HTTP request is succesfull or not
 
         throw new Error(
           data.detail ||
